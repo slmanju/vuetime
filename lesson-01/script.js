@@ -13,7 +13,7 @@ new Vue({
     // methods
     methods: {
         saveNote() {
-            console.log('saving note:', this.content)
+            console.log('saving note:', this.content);
             localStorage.setItem('content', this.content)
         },
         // Add a note with some default content and select it
@@ -21,13 +21,13 @@ new Vue({
             const time = Date.now();
             // Default new note
             const note = {
-                    id: String(time),
-                    title: 'New note ' + (this.notes.length + 1),
-                    content: '**Hi!** This notebook is using [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for formatting!',
-                    created: time,
-                    favorite: false,
-                }
-                // Add to the list
+                id: String(time),
+                title: 'New note ' + (this.notes.length + 1),
+                content: '**Hi!** This notebook is using [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for formatting!',
+                created: time,
+                favorite: false,
+            };
+            // Add to the list
             this.notes.push(note);
         },
         selectNote(note) {
@@ -38,10 +38,14 @@ new Vue({
     computed: {
         notePreview() {
             // Markdown rendered to HTML
-            return marked(this.content);
+            return this.selectedNote ? marked(this.selectedNote.content) : '';
         },
         addButtonTitle() {
             return this.notes.length + ' note(s) already';
+        },
+        selectedNote() {
+            // We return the matching note with selectedId
+            return this.notes.find(note => note.id === this.selectedId);
         },
     },
     // Change watchers
@@ -57,5 +61,3 @@ new Vue({
         this.content = localStorage.getItem('content') || 'You can write in **markdown** ';
     },
 });
-
-console.log('restored note:', localStorage.getItem('content'));
