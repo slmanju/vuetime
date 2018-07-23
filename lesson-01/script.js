@@ -32,8 +32,10 @@ new Vue({
                 created: time,
                 favorite: false,
             };
-            // Add to the list
-            this.notes.push(note);
+            // Add
+            this.notes.push(note)
+                // Select
+            this.selectNote(note)
         },
         selectNote(note) {
             this.selectedId = note.id
