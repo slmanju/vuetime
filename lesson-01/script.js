@@ -1,3 +1,5 @@
+Vue.filter('date', time => moment(time).format('DD/MM/YY, HH:mm'));
+
 // New VueJS instance
 new Vue({
     el: '#notebook',
