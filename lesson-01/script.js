@@ -44,7 +44,10 @@ new Vue({
                     this.notes.splice(index, 1)
                 }
             }
-        }
+        },
+        favoriteNote() {
+            this.selectedNote.favorite = !this.selectedNote.favorite;
+        },
     },
     // Computed properties
     computed: {
@@ -58,6 +61,11 @@ new Vue({
         selectedNote() {
             // We return the matching note with selectedId
             return this.notes.find(note => note.id === this.selectedId);
+        },
+        sortedNotes() {
+            return this.notes.slice()
+                .sort((a, b) => a.created - b.created)
+                .sort((a, b) => (a.favorite === b.favorite) ? 0 : a.favorite ? -1 : 1);
         },
     },
     // Change watchers
