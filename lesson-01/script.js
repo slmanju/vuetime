@@ -7,6 +7,13 @@ new Vue({
             content: 'This is a note.'
         }
     },
+    // methods
+    methods: {
+        saveNote() {
+            console.log('saving note:', this.content)
+            localStorage.setItem('content', this.content)
+        },
+    },
     // Computed properties
     computed: {
         notePreview() {
@@ -14,7 +21,18 @@ new Vue({
             return marked(this.content);
         },
     },
+    // Change watchers
+    watch: {
+        // Watching 'content' data property
+        content: {
+            handler: 'saveNote',
+        },
+    },
+    // This will be called when the instance is ready
+    created() {
+        // Set the content to the stored value or to a default string if nothing was saved
+        this.content = localStorage.getItem('content') || 'You can write in **markdown** ';
+    },
 });
 
-const html = marked('**Bold** *Italic* [link] (http: //vuejs.org/)');
-console.log(html);
+console.log('restored note:', localStorage.getItem('content'));
