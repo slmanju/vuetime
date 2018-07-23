@@ -5,7 +5,9 @@ new Vue({
     data() {
         return {
             content: 'This is a note.',
-            notes: []
+            notes: [],
+            // Id of the selected note
+            selectedId: null
         }
     },
     // methods
@@ -27,6 +29,9 @@ new Vue({
                 }
                 // Add to the list
             this.notes.push(note);
+        },
+        selectNote(note) {
+            this.selectedId = note.id
         },
     },
     // Computed properties
