@@ -28,7 +28,9 @@
         </aside>
         <template v-if="selectedNote">
             <!-- Main pane -->
-            <section class="main"></section>
+            <section class="main">
+                <textarea v-model="selectedNote.content"></textarea>
+            </section>
             <!-- Preview pane -->
             <aside class="preview" v-html="notePreview"></aside>
         </template>

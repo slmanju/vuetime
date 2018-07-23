@@ -4,10 +4,8 @@ new Vue({
     // Some data
     data() {
         return {
-            content: 'This is a note.',
-            notes: [],
-            // Id of the selected note
-            selectedId: null
+            notes: JSON.parse(localStorage.getItem('notes')) || [],
+            selectedId: localStorage.getItem('selected-id') || null,
         }
     },
     // methods
@@ -15,6 +13,11 @@ new Vue({
         saveNote() {
             console.log('saving note:', this.content);
             localStorage.setItem('content', this.content)
+        },
+        saveNotes() {
+            // Don't forget to stringify to JSON before storing
+            localStorage.setItem('notes', JSON.stringify(this.notes));
+            console.log('Notes saved!', new Date());
         },
         // Add a note with some default content and select it
         addNote() {
@@ -50,9 +53,15 @@ new Vue({
     },
     // Change watchers
     watch: {
-        // Watching 'content' data property
-        content: {
-            handler: 'saveNote',
+        notes: {
+            // The method name
+            handler: 'saveNotes',
+            // We need this to watch each note's properties inside the array
+            deep: true,
+        },
+        // Let's save the selection too
+        selectedId(val) {
+            localStorage.setItem('selected-id', val)
         },
     },
     // This will be called when the instance is ready
