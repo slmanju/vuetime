@@ -12,6 +12,8 @@
                 <p v-html="question.content"></p>
             </article>
         </section>
+
+        <Loading v-if="loading" />
     </main>
 </template>
 
@@ -21,9 +23,11 @@
             return {
                 questions: [],
                 error: null,
+                loading: false,
             }
         },
         async created() {
+            this.loading = true;
             try {
                 const response = await fetch('http://localhost:3000/questions')
                 if (response.ok) {
@@ -34,6 +38,7 @@
             } catch (e) {
                 this.error = e
             }
+            this.loading = false;
         },
     }
 </script>

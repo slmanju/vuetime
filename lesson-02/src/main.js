@@ -1,4 +1,5 @@
 import 'babel-polyfill'
+import './global-components'
 import Vue from 'vue'
 
 import router from './router'
