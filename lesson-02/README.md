@@ -1,6 +1,8 @@
 # lesson-02
 
-> A Vue.js project
+Source - [Vue js Web Development Projects](https://www.amazon.com/Vue-js-Web-Development-Projects-building-ebook/dp/B076T2GZB1)
+
+> Create a Vue.js project
 
 ## Initiate
 vue init webpack-simple lesson-02
@@ -24,4 +26,3 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
