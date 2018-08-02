@@ -2,6 +2,22 @@
 
 > A Vue.js project
 
+It is easy to create a project using vue-cli. Let's install it first.
+
+`$ npm install --global vue-cli`
+
+### create a new project using the "webpack" template
+`$ vue init webpack demo-app`
+
+### install dependencies
+`$ cd demo-app`
+`$ npm install`
+
+### start the application
+`$ npm run dev`
+
+Now projects runs at http://localhost:8080/
+
 ## Build Setup
 
 ``` bash
