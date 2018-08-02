@@ -6,7 +6,7 @@
         </div>
         <div>
             <label for="description">Description</label>
-            <input type="text" id="description" v-model="description" />
+            <textarea name="description" id="description" cols="30" rows="10" v-model="description"></textarea>
         </div>
         <div>
             <button @click="save">Add</button>
@@ -24,7 +24,10 @@
         },
         methods: {
             save() {
-                console.log(this.title, this.description);
+                this.$emit('save-todo', {
+                    title: this.title,
+                    description: this.description
+                });
                 this.title = '';
                 this.description = '';
             }
