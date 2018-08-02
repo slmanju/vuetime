@@ -21,9 +21,9 @@
     data: function() {
       return {
         todos: [
-          'Todo A1',
-          'Todo B2',
-          'Todo C3'
+          { id: 1, title: 'Todo A', description: 'Remember to complete todo a'},
+          { id: 2, title: 'Todo A', description: 'Remember to complete todo b'},
+          { id: 3, title: 'Todo A', description: 'Remember to complete todo c'}
         ]
       }
     }
