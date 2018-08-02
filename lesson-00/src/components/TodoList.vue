@@ -1,8 +1,8 @@
 <template>
     <div id="todo-list">
-        <div v-for="todo in todos" v-bind:key="todo.id" class="todo">
-            <div class="title">{{ todo.title }}</div>
-            <div class="description">{{ todo.description }}</div>
+        <div v-for="todo in todos" v-bind:key="todo.id" class="box">
+            <div>{{ todo.title }}</div>
+            <div>{{ todo.description }}</div>
         </div>
     </div>
 </template>
@@ -13,21 +13,7 @@
     }
 </script>
 
-<style <style scoped>
-    .todo {
-        margin: 10px;
-        padding: 10px;
-        border: 1px solid #BFBFBF;
-        border-radius: 5px;
-        background-color: white;
-    }
+<style scoped>
 
-    .title {
-        color: rgb(18, 137, 206);
-    }
-
-    .description {
-        color: rgb(71, 136, 10);
-    }
 </style>
 
