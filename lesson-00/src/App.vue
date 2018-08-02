@@ -3,7 +3,7 @@
     <div>
       <h3>Todo List</h3>
       <todo v-on:save-todo="save"></todo>
-      <todo-list v-bind:todos="todos"></todo-list>
+      <todo-list v-bind:todos="todos" v-on:delete-todo="deleteTodo"></todo-list>
     </div>
   </div>
 </template>
@@ -20,29 +20,22 @@
     },
     data: function() {
       return {
-        lastId: 3,
+        lastId: 1,
         todos: [{
-            id: 1,
-            title: 'Todo A',
-            description: 'Remember to complete todo a'
-          },
-          {
-            id: 2,
-            title: 'Todo A',
-            description: 'Remember to complete todo b'
-          },
-          {
-            id: 3,
-            title: 'Todo A',
-            description: 'Remember to complete todo c'
-          }
-        ]
+          id: 1,
+          title: 'Todo A',
+          description: 'Remember to complete todo a'
+        }]
       }
     },
     methods: {
       save(todo) {
         this.lastId = todo.id = this.lastId + 1;
         this.todos.push(todo);
+      },
+      deleteTodo(todo) {
+        const todoIndex = this.todos.indexOf(todo);
+        this.todos.splice(todoIndex, 1);
       }
     }
   }
