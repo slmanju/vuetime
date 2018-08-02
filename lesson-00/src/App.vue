@@ -3,7 +3,7 @@
     <div>
       <h3>Todo List</h3>
       <todo/>
-      <todo-list></todo-list>
+      <todo-list v-bind:todos="todos"></todo-list>
     </div>
   </div>
 </template>
@@ -17,6 +17,15 @@
     components: {
       Todo,
       TodoList
+    },
+    data: function() {
+      return {
+        todos: [
+          'Todo A1',
+          'Todo B2',
+          'Todo C3'
+        ]
+      }
     }
   }
 </script>
