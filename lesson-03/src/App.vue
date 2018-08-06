@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <app-new-quote @addQuote="addQuote"></app-new-quote>
-        <app-quote-grid :quotes="quotes"></app-quote-grid>
+        <app-quote-grid :quotes="quotes" @deleteQuote="deleteQuote"></app-quote-grid>
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="alert alert-info">
@@ -15,9 +15,9 @@
 <script>
     import QuoteGrid from './components/QuoteGrid.vue';
     import NewQuote from './components/NewQuote.vue';
-
+    
     export default {
-        data: function () {
+        data: function() {
             return {
                 quotes: [
                     'just a quote to see something',
@@ -33,10 +33,14 @@
         methods: {
             addQuote(newQuote) {
                 this.quotes.push(newQuote);
+            },
+            deleteQuote(index) {
+                this.quotes.splice(index, 1);
             }
         }
     }
 </script>
 
 <style>
+    
 </style>
