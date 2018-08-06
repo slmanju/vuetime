@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+Based on Maximilian Schwarzmüller's VueJs course
+
 ## Build Setup
 
 ``` bash
