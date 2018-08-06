@@ -35,7 +35,11 @@
         },
         methods: {
             addQuote(newQuote) {
-                this.quotes.push(newQuote);
+                if (this.quotes.length >= this.maxQuotes) {
+                    alert('Please delete Quotes first');
+                } else {
+                    this.quotes.push(newQuote);
+                }
             },
             deleteQuote(index) {
                 this.quotes.splice(index, 1);
