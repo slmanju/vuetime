@@ -9,6 +9,7 @@
                 <button @click.prevent="createNew" class="btn btn-primary">Add Quote</button>
             </div>
         </form>
+    </div>
 </template>
 
 <script>
@@ -20,7 +21,8 @@
         },
         methods: {
             createNew() {
-                console.log(this.quote);
+                this.$emit('addQuote', this.quote);
+                this.quote = '';
             }
         }
     }
